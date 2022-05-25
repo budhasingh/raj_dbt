@@ -327,3 +327,157 @@ where id = 1
 12:51:01.007434 [info ] [MainThread]: 
 12:51:01.007849 [info ] [MainThread]: Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
 12:51:01.008418 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd3e2855730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd3e2779ee0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fd3e1f01730>]}
+
+
+============================== 2022-05-25 13:18:30.083150 | a308bc7a-bc48-4d6f-aea1-77f687a27d09 ==============================
+13:18:30.083343 [info ] [MainThread]: Running with dbt=1.1.0
+13:18:30.084077 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/Users/budha/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+13:18:30.084225 [debug] [MainThread]: Tracking: tracking
+13:18:30.084532 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94af077f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94af07790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94af076a0>]}
+13:18:30.112984 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 2 files added, 0 files changed.
+13:18:30.113372 [debug] [MainThread]: Partial parsing: added file: raj_dbt://models/snowflake_sample_data/schema.yml
+13:18:30.113526 [debug] [MainThread]: Partial parsing: added file: raj_dbt://models/snowflake_sample_data/snowflake_sample_data_store_sales.sql
+13:18:30.124315 [debug] [MainThread]: 1699: static parser successfully parsed snowflake_sample_data/snowflake_sample_data_store_sales.sql
+13:18:30.152259 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a308bc7a-bc48-4d6f-aea1-77f687a27d09', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94afa6bb0>]}
+13:18:30.157253 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a308bc7a-bc48-4d6f-aea1-77f687a27d09', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94af43d00>]}
+13:18:30.157546 [info ] [MainThread]: Found 3 models, 4 tests, 0 snapshots, 0 analyses, 181 macros, 0 operations, 0 seed files, 1 source, 0 exposures, 0 metrics
+13:18:30.157754 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a308bc7a-bc48-4d6f-aea1-77f687a27d09', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94af43d60>]}
+13:18:30.159117 [info ] [MainThread]: 
+13:18:30.159533 [debug] [MainThread]: Acquiring new snowflake connection "master"
+13:18:30.160952 [debug] [ThreadPool]: Acquiring new snowflake connection "list_poc"
+13:18:30.173044 [debug] [ThreadPool]: Using snowflake connection "list_poc"
+13:18:30.173273 [debug] [ThreadPool]: On list_poc: /* {"app": "dbt", "dbt_version": "1.1.0", "profile_name": "raj_dbt", "target_name": "dev", "connection_name": "list_poc"} */
+
+    show terse schemas in database poc
+    limit 10000
+13:18:30.173398 [debug] [ThreadPool]: Opening a new connection, currently in state init
+13:18:31.804341 [debug] [ThreadPool]: SQL status: SUCCESS 4 in 1.63 seconds
+13:18:31.810659 [debug] [ThreadPool]: On list_poc: Close
+13:18:32.110852 [debug] [ThreadPool]: Acquiring new snowflake connection "list_poc_dbt_landing"
+13:18:32.124948 [debug] [ThreadPool]: Using snowflake connection "list_poc_dbt_landing"
+13:18:32.125238 [debug] [ThreadPool]: On list_poc_dbt_landing: /* {"app": "dbt", "dbt_version": "1.1.0", "profile_name": "raj_dbt", "target_name": "dev", "connection_name": "list_poc_dbt_landing"} */
+
+    show terse objects in poc.dbt_landing
+13:18:32.125460 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+13:18:33.891164 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.77 seconds
+13:18:33.897620 [debug] [ThreadPool]: On list_poc_dbt_landing: Close
+13:18:34.173539 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a308bc7a-bc48-4d6f-aea1-77f687a27d09', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe95851bca0>]}
+13:18:34.174899 [info ] [MainThread]: Concurrency: 10 threads (target='dev')
+13:18:34.175515 [info ] [MainThread]: 
+13:18:34.185208 [debug] [Thread-1  ]: Began running node model.raj_dbt.my_first_dbt_model
+13:18:34.185607 [debug] [Thread-2  ]: Began running node model.raj_dbt.snowflake_sample_data_store_sales
+13:18:34.186205 [info ] [Thread-1  ]: 1 of 3 START table model dbt_landing.my_first_dbt_model ........................ [RUN]
+13:18:34.186680 [info ] [Thread-2  ]: 2 of 3 START view model dbt_landing.snowflake_sample_data_store_sales .......... [RUN]
+13:18:34.187723 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.raj_dbt.my_first_dbt_model"
+13:18:34.188603 [debug] [Thread-2  ]: Acquiring new snowflake connection "model.raj_dbt.snowflake_sample_data_store_sales"
+13:18:34.188852 [debug] [Thread-1  ]: Began compiling node model.raj_dbt.my_first_dbt_model
+13:18:34.189127 [debug] [Thread-2  ]: Began compiling node model.raj_dbt.snowflake_sample_data_store_sales
+13:18:34.189404 [debug] [Thread-1  ]: Compiling model.raj_dbt.my_first_dbt_model
+13:18:34.189636 [debug] [Thread-2  ]: Compiling model.raj_dbt.snowflake_sample_data_store_sales
+13:18:34.195156 [debug] [Thread-1  ]: Writing injected SQL for node "model.raj_dbt.my_first_dbt_model"
+13:18:34.199031 [debug] [Thread-2  ]: Writing injected SQL for node "model.raj_dbt.snowflake_sample_data_store_sales"
+13:18:34.199898 [debug] [Thread-1  ]: finished collecting timing info
+13:18:34.200156 [debug] [Thread-1  ]: Began executing node model.raj_dbt.my_first_dbt_model
+13:18:34.205810 [debug] [Thread-2  ]: finished collecting timing info
+13:18:34.212357 [debug] [Thread-2  ]: Began executing node model.raj_dbt.snowflake_sample_data_store_sales
+13:18:34.251345 [debug] [Thread-1  ]: Writing runtime SQL for node "model.raj_dbt.my_first_dbt_model"
+13:18:34.251657 [debug] [Thread-2  ]: Writing runtime SQL for node "model.raj_dbt.snowflake_sample_data_store_sales"
+13:18:34.252512 [debug] [Thread-1  ]: Using snowflake connection "model.raj_dbt.my_first_dbt_model"
+13:18:34.252635 [debug] [Thread-1  ]: On model.raj_dbt.my_first_dbt_model: /* {"app": "dbt", "dbt_version": "1.1.0", "profile_name": "raj_dbt", "target_name": "dev", "node_id": "model.raj_dbt.my_first_dbt_model"} */
+
+
+      create or replace transient table poc.dbt_landing.my_first_dbt_model  as
+      (/*
+    Welcome to your first dbt model!
+    Did you know that you can also configure models directly within SQL files?
+    This will override configurations stated in dbt_project.yml
+
+    Try changing "table" to "view" below
+*/
+
+
+
+with source_data as (
+
+    select 1 as id
+    union all
+    select null as id
+
+)
+
+select *
+from source_data
+
+/*
+    Uncomment the line below to remove records with null `id` values
+*/
+
+-- where id is not null
+      );
+13:18:34.252741 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+13:18:34.253255 [debug] [Thread-2  ]: Using snowflake connection "model.raj_dbt.snowflake_sample_data_store_sales"
+13:18:34.253860 [debug] [Thread-2  ]: On model.raj_dbt.snowflake_sample_data_store_sales: /* {"app": "dbt", "dbt_version": "1.1.0", "profile_name": "raj_dbt", "target_name": "dev", "node_id": "model.raj_dbt.snowflake_sample_data_store_sales"} */
+
+  create or replace  view poc.dbt_landing.snowflake_sample_data_store_sales
+  
+   as (
+    with source_store_sales as (
+    
+    select * from snowflake_sample_data.TPCDS_SF10TCL.store_sales
+),
+final as ( select * from source_store_sales )
+select * from final
+  );
+13:18:34.253966 [debug] [Thread-2  ]: Opening a new connection, currently in state init
+13:18:35.486486 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 1.23 seconds
+13:18:35.507608 [debug] [Thread-2  ]: finished collecting timing info
+13:18:35.508027 [debug] [Thread-2  ]: On model.raj_dbt.snowflake_sample_data_store_sales: Close
+13:18:35.788106 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a308bc7a-bc48-4d6f-aea1-77f687a27d09', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94b2400a0>]}
+13:18:35.788993 [info ] [Thread-2  ]: 2 of 3 OK created view model dbt_landing.snowflake_sample_data_store_sales ..... [[32mSUCCESS 1[0m in 1.60s]
+13:18:35.789863 [debug] [Thread-2  ]: Finished running node model.raj_dbt.snowflake_sample_data_store_sales
+13:18:37.614043 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 3.36 seconds
+13:18:37.629343 [debug] [Thread-1  ]: finished collecting timing info
+13:18:37.629876 [debug] [Thread-1  ]: On model.raj_dbt.my_first_dbt_model: Close
+13:18:38.338154 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a308bc7a-bc48-4d6f-aea1-77f687a27d09', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94b21efd0>]}
+13:18:38.339104 [info ] [Thread-1  ]: 1 of 3 OK created table model dbt_landing.my_first_dbt_model ................... [[32mSUCCESS 1[0m in 4.15s]
+13:18:38.339889 [debug] [Thread-1  ]: Finished running node model.raj_dbt.my_first_dbt_model
+13:18:38.341357 [debug] [Thread-4  ]: Began running node model.raj_dbt.my_second_dbt_model
+13:18:38.342145 [info ] [Thread-4  ]: 3 of 3 START view model dbt_landing.my_second_dbt_model ........................ [RUN]
+13:18:38.343071 [debug] [Thread-4  ]: Acquiring new snowflake connection "model.raj_dbt.my_second_dbt_model"
+13:18:38.343385 [debug] [Thread-4  ]: Began compiling node model.raj_dbt.my_second_dbt_model
+13:18:38.343669 [debug] [Thread-4  ]: Compiling model.raj_dbt.my_second_dbt_model
+13:18:38.348146 [debug] [Thread-4  ]: Writing injected SQL for node "model.raj_dbt.my_second_dbt_model"
+13:18:38.348978 [debug] [Thread-4  ]: finished collecting timing info
+13:18:38.349256 [debug] [Thread-4  ]: Began executing node model.raj_dbt.my_second_dbt_model
+13:18:38.354547 [debug] [Thread-4  ]: Writing runtime SQL for node "model.raj_dbt.my_second_dbt_model"
+13:18:38.355770 [debug] [Thread-4  ]: Using snowflake connection "model.raj_dbt.my_second_dbt_model"
+13:18:38.355996 [debug] [Thread-4  ]: On model.raj_dbt.my_second_dbt_model: /* {"app": "dbt", "dbt_version": "1.1.0", "profile_name": "raj_dbt", "target_name": "dev", "node_id": "model.raj_dbt.my_second_dbt_model"} */
+
+  create or replace  view poc.dbt_landing.my_second_dbt_model
+  
+   as (
+    -- Use the `ref` function to select from other models
+
+select *
+from poc.dbt_landing.my_first_dbt_model
+where id = 1
+  );
+13:18:38.356199 [debug] [Thread-4  ]: Opening a new connection, currently in state init
+13:18:39.386118 [debug] [Thread-4  ]: SQL status: SUCCESS 1 in 1.03 seconds
+13:18:39.394385 [debug] [Thread-4  ]: finished collecting timing info
+13:18:39.395164 [debug] [Thread-4  ]: On model.raj_dbt.my_second_dbt_model: Close
+13:18:39.670728 [debug] [Thread-4  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a308bc7a-bc48-4d6f-aea1-77f687a27d09', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94b340a30>]}
+13:18:39.671815 [info ] [Thread-4  ]: 3 of 3 OK created view model dbt_landing.my_second_dbt_model ................... [[32mSUCCESS 1[0m in 1.33s]
+13:18:39.672644 [debug] [Thread-4  ]: Finished running node model.raj_dbt.my_second_dbt_model
+13:18:39.675120 [debug] [MainThread]: Acquiring new snowflake connection "master"
+13:18:39.675899 [info ] [MainThread]: 
+13:18:39.676448 [info ] [MainThread]: Finished running 2 view models, 1 table model in 9.52s.
+13:18:39.676922 [debug] [MainThread]: Connection 'master' was properly closed.
+13:18:39.677165 [debug] [MainThread]: Connection 'model.raj_dbt.my_first_dbt_model' was properly closed.
+13:18:39.677394 [debug] [MainThread]: Connection 'model.raj_dbt.snowflake_sample_data_store_sales' was properly closed.
+13:18:39.677618 [debug] [MainThread]: Connection 'model.raj_dbt.my_second_dbt_model' was properly closed.
+13:18:39.686551 [info ] [MainThread]: 
+13:18:39.687045 [info ] [MainThread]: [32mCompleted successfully[0m
+13:18:39.687493 [info ] [MainThread]: 
+13:18:39.687863 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+13:18:39.688362 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe95851bca0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94aeef910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7fe94af439a0>]}
